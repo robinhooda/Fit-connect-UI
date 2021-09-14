@@ -32,7 +32,7 @@ export const Login = () => {
 
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
-  const [isLargerThan640] = useMediaQuery("(min-width: 640px)")
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)")
   console.log(auth);
   const user = auth.login;
 
@@ -178,7 +178,7 @@ export const Login = () => {
             </Heading>
           </Stack>
         </Flex>
-        {isLargerThan640 &&  
+        {isLargerThan768 &&  
         (<Flex flex={1}>
           <Image
             alt={"Login Image"}

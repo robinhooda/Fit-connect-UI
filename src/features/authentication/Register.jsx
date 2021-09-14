@@ -31,7 +31,7 @@ export const Register = () => {
   });
 
   const dispatch = useDispatch();
-  const [isLargerThan640] = useMediaQuery("(min-width: 640px)")
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)")
 
   const registerUserHandler = async (e) => {
     e.preventDefault();
@@ -166,7 +166,7 @@ export const Register = () => {
           </Heading>
         </Stack>
       </Flex>
-      {isLargerThan640 &&  
+      {isLargerThan768 &&  
         (<Flex flex={1}>
           <Image
             alt={"Login Image"}
