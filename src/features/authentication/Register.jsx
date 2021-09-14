@@ -8,6 +8,7 @@ import {
   Stack,
   Image,
   chakra,
+  useMediaQuery,
   Spinner,
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
@@ -30,6 +31,7 @@ export const Register = () => {
   });
 
   const dispatch = useDispatch();
+  const [isLargerThan640] = useMediaQuery("(min-width: 640px)")
 
   const registerUserHandler = async (e) => {
     e.preventDefault();
@@ -42,7 +44,7 @@ export const Register = () => {
       email: "",
     }));
 
-    // to do : add status code and then 
+    // to do : add status code and then show toast
     toast({
       title: "Account created.",
       description: "Please Login with your newly created credentials.",
@@ -164,15 +166,16 @@ export const Register = () => {
           </Heading>
         </Stack>
       </Flex>
-      <Flex flex={1}>
-        <Image
-          alt={"Login Image"}
-          objectFit={"cover"}
-          src={HomeBanner}
-          width="100%"
-          height="100vh"
-        />
-      </Flex>
+      {isLargerThan640 &&  
+        (<Flex flex={1}>
+          <Image
+            alt={"Login Image"}
+            objectFit={"cover"}
+            src={HomeBanner}
+            width="100%"
+            height="100vh"
+          />
+        </Flex>)}
     </Stack>
   );
 };

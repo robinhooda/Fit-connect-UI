@@ -10,6 +10,7 @@ import {
   useToast,
   chakra,
   Spinner,
+  useMediaQuery
 } from "@chakra-ui/react";
 
 import { useEffect, useState } from "react";
@@ -31,6 +32,7 @@ export const Login = () => {
 
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
+  const [isLargerThan640] = useMediaQuery("(min-width: 640px)")
   console.log(auth);
   const user = auth.login;
 
@@ -176,7 +178,8 @@ export const Login = () => {
             </Heading>
           </Stack>
         </Flex>
-        <Flex flex={1}>
+        {isLargerThan640 &&  
+        (<Flex flex={1}>
           <Image
             alt={"Login Image"}
             objectFit={"cover"}
@@ -184,7 +187,9 @@ export const Login = () => {
             width="100%"
             height="100vh"
           />
-        </Flex>
+        </Flex>)
+        }
+       
       </Stack>
 
       {auth.loading && (

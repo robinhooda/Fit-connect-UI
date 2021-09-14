@@ -57,7 +57,7 @@ export const UserProfile = () => {
   return (
     <Box fontFamily={"default.headline"} backgroundColor={"brand.primary"} minH={"100vh"}>
       <Navbar />
-      <Box py={6} fontFamily={"default.heading"} maxW={"8xl"} mx={"auto"}>
+      <Box py={6} fontFamily={"default.heading"} maxW={"sm"} mx={"auto"}>
         <Box
           maxW={"sm"}
           w={"full"}
@@ -184,16 +184,15 @@ export const UserProfile = () => {
           </Box>
         </Box>
         {userPosts.length === 0 && user._id === currentUser._id ? (
-          <Box display={"flex"} justifyContent={"center"}>
+          <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
           <Heading color={"brand.white"}>
             No posts to view 
             <Link to="/home">
             <Button
               w={"full"}
               mt={8}
-              bg={buttonState === "Following" ? "brand.button" : "brand.button"}
+              bg={"brand.button"}
               color={"white"}
-              onClick={actionAfterButtonClicked}
               rounded={"sm"}
               _hover={{
                 boxShadow: "lg",
